@@ -49,7 +49,7 @@
 
 	<h2>Cadastro de Usuario</h2>
 
-	<form name="cadastro" id="cadastro" method="post" action="bd-gravar.php">
+	<form name="cadastro" id="cadastro" method="post" action="../back-end/user/db-signin.php">
 		<p>
 			Username:<br>
 			<input type="text" name="username" id="username" maxlength="100" value="" size="60">
