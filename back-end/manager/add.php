@@ -1,4 +1,4 @@
 <?php
-    // comentario de test
+    // test comment
     echo "test";
 ?>
