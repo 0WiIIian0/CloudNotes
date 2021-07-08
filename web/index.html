@@ -7,7 +7,6 @@
     <title>CloudNote</title>
 </head>
 <body>
-
     <div id="root">
         <div id="leftBox">
             <div id="leftBoxTop">
@@ -15,14 +14,21 @@
             </div>
             <div id="noteList">
                 <div class="noteItem">
-                    <div class="noteTitle">Note Title</div>
-                    <div class="noteContentPreview">Note Sample Note Sample Note Sample Note Sample Note Sample...</div>
+                    <div class="noteInfo">
+                        <div class="noteTitle">Note Title</div>
+                        <div class="noteContentPreview">Note Sample Note Sample Note Sample Note Sample Note Sample...</div>    
+                    </div>
+                    <div class="noteOptions">
+                        <img src="./assets/icon/edit.svg">
+                        <img src="./assets/icon/trash.svg">
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="noteContent"></div>
+        <div id="noteContent">
+            Nenhuma nota selecionada
+        </div>
     </div>
-
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

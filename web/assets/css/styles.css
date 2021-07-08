@@ -17,6 +17,11 @@
 }
 
 body {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
     background-color: #222222;
 }
 
@@ -37,7 +42,8 @@ body {
 
 #leftBox {
     flex: 1;
-    width: 100%;;
+    width: 100%;
+    max-width: 350px;
     display: flex;
     overflow-x: hidden;
     min-height: 100%;
@@ -82,18 +88,56 @@ body {
 .noteItem {
     min-width: calc(95% - 40px);
     margin: 10px;
-    padding: 10px;
     cursor: pointer;
     display: flex;
+    overflow-x: hidden;
     box-shadow: 0 0 10px #bbbbbb;
     border-radius: 10px;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #dcdcdc;
     transition-duration: 0.4s;
 }
 
+.noteInfo {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.noteOptions {
+    left: 60px;
+    cursor: default;
+    display: flex;
+    position: relative;
+    min-width: 50px;
+    min-height: 100%;
+    box-shadow: 0 0 5px #888888;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0 10px 10px 0;
+    background-color: #999999;
+    transition-duration: 0.4s;
+}
+
+.noteOptions img {
+    cursor: pointer;
+    width: 30px;
+    margin: 5px;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+}
+
+.noteOptions img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 7px #555555;
+}
+
 .noteItem:hover {
     background-color: #BBBBBB;
+}
+
+.noteItem:hover > .noteOptions {
+    left: 0px;
 }
 
 .noteTitle {
@@ -102,12 +146,18 @@ body {
 }
 
 .noteContentPreview {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 #noteContent {
     flex: 2;
+    color: #DDDDDD;
+    display: flex;
+    font-size: 26px;
+    align-items: center;
     min-height: 100%;
     border-radius: 0 20px 20px 0;
-    background-color: #888888;
+    justify-content: center;
+    background-image: linear-gradient(45deg, #333, #222, #333);
 }
+

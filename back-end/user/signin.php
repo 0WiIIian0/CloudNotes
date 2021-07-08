@@ -1,64 +1,73 @@
-<script type="text/javascript" src="_js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-	
-	$(document).ready(function(){
+<DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" href="./assets/css/styles.css">
+    <title>CloudNote</title>
+</head>
+<body>
+	<script type="text/javascript" src="_js/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
 
-		
-		$("div[id*=erro]").css("color", "#f00");
+		$(document).ready(function(){
 
-				
-		$("#cadastro").submit(function(){
-			var erros = 0;
+			$("div[id*=erro]").css("color", "#f00");
 
-			$("div[id*=error]").html("");
+			$("#cadastro").submit(function(){
+				var erros = 0;
 
-			$("#username").val(  $.trim($("#username").val() ) );
+				$("div[id*=error]").html("");
 
-			if( $("#username").val() == "" )
-			{
-				$("#div_error_username").html("O campo username deve ser preenchido !!!");
-				erros++;
-			}
+				$("#username").val(  $.trim($("#username").val() ) );
 
-			if( $("#email").val() == "" )
-			{
-				$("#div_error_email").html("O campo email deve ser preenchido !!!");
-				erros++;
-			}
+				if( $("#username").val() == "" )
+				{
+					$("#div_error_username").html("O campo username deve ser preenchido !!!");
+					erros++;
+				}
 
-			if( $("#password").val() == "" )
-			{
-				$("#div_error_password").html("O campo password deve ser preenchido !!!");
-				erros++;
-			}
-			return erros == 0;
+				if( $("#email").val() == "" )
+				{
+					$("#div_error_email").html("O campo email deve ser preenchido !!!");
+					erros++;
+				}
 
-		}); // submit de fcad
+				if( $("#password").val() == "" )
+				{
+					$("#div_error_password").html("O campo password deve ser preenchido !!!");
+					erros++;
+				}
+				return erros == 0;
+
+			}); // submit de fcad
 
 
-	}); // read
+		}); // read
 
-</script>
+	</script>
 
-<h2>Cadastro de Usuario</h2>
-<form name="cadastro" id="cadastro" method="post" action="login.php">
-	<p>		
-			Username:<br>
-			<input type="text" name="username" id="username" maxlength="100" value="" size="60">
-			<div id="div_error_username"></div>
-	</p>
+	<h2>Cadastro de Usuario</h2>
 
-	<p>		
-			Email:<br>
-			<input type="text" name="email" id="email" maxlength="100" value="" size="50">
-			<div id="div_error_email"></div>
-	</p>
+	<form name="cadastro" id="cadastro" method="post" action="login.php">
+		<p>		
+				Username:<br>
+				<input type="text" name="username" id="username" maxlength="100" value="" size="60">
+				<div id="div_error_username"></div>
+		</p>
 
-	<p>		
-			Password:<br>
-			<input type="text" name="password" id="password" maxlength="100" value="" size="60">
-			<div id="div_error_password"></div>
-	</p>
-	<input type="submit" name="cadastrar" id="cadastrar" value=" Cadastrar ">
-</form>
+		<p>		
+				Email:<br>
+				<input type="text" name="email" id="email" maxlength="100" value="" size="50">
+				<div id="div_error_email"></div>
+		</p>
 
+		<p>		
+				Password:<br>
+				<input type="text" name="password" id="password" maxlength="100" value="" size="60">
+				<div id="div_error_password"></div>
+		</p>
+		<input type="submit" name="cadastrar" id="cadastrar" value=" Cadastrar ">
+	</form>
+</body>
+</html>
