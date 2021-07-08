@@ -19,9 +19,9 @@
 	$password           = $_POST['password'];
 
 
-	$cmd->bindValue(":username" , $username);                    
-	$cmd->bindValue(":email"    , $email); 
-	$cmd->bindValue(":password" , $password);
+	$cmd->bindValue(":username" , $username);                   
+	$cmd->bindValue(":email"    , md5($email)); 
+	$cmd->bindValue(":password" , password_hash($password,PASSWORD_DEFAULT));
 
 	$cmd->execute();
 	header("Location: login.php");
