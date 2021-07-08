@@ -24,6 +24,6 @@
 	$cmd->bindValue(":password" , password_hash($password,PASSWORD_DEFAULT));
 
 	$cmd->execute();
-	header("Location: login.php");
+	header("Location: ../../web/index.html");
 
 ?>

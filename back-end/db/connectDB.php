@@ -14,7 +14,7 @@ class BD
 	{
 		try 
 		{	
-			$this->pdo = new PDO("mysql:host=localhost;dbname=cloudnotes","root","vertrigo"); 
+			$this->pdo = new PDO("mysql:host=localhost;dbname=cloudnotes","root",""); 
 		
 		} catch(PDOException $e)
 		{
