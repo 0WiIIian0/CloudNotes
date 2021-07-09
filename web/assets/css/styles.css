@@ -44,14 +44,16 @@ body {
     flex: 1;
     width: 100%;
     max-width: 350px;
+    min-width: 280px;
     display: flex;
     overflow-x: hidden;
     min-height: 100%;
     max-height: 100%;
-    justify-content: center;
-    flex-direction: column;
     border-radius: 20px 0 0 20px;
+    flex-direction: column;
+    justify-content: center;
     background-color: #cecece;
+    transition-duration: 0.4s;
 }
 
 #leftBoxTop {
@@ -230,11 +232,123 @@ input[name="profilePictureImg"] {
     flex: 2;
     color: #DDDDDD;
     display: flex;
+    padding: 20px;
     font-size: 26px;
-    align-items: center;
-    min-height: 100%;
+    min-height: calc(100% - 40px);
+    max-height: calc(100% - 40px);
+    flex-direction: column;
     border-radius: 0 20px 20px 0;
-    justify-content: center;
     background-image: linear-gradient(45deg, #333, #222, #333);
 }
 
+#noteContentHeader {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobileMenu {
+    left: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    transition-duration: 0.3s;
+}
+
+#mobileMenu:hover {
+    transform: scale(1.05);
+}
+
+.mobileMenuIconLine {
+    flex: 1;
+    width: 90%;
+    height: 2px;
+    margin: 2px 0;
+    max-height: 4px;
+    border-radius: 5px;
+    background-color: black;
+}
+
+#currentNoteText {
+    flex: 5;
+    padding: 20px;
+    font-size: 22px;
+    overflow: auto;
+}
+
+@media only screen and (pointer: coarse) {
+
+    * {
+        cursor: none;
+    }
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+    #root {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    #leftBox {
+        border-radius: 0px;
+    }
+
+    #leftBoxTop {
+        border-top-left-radius: 0px;
+    }
+
+    #noteList {
+        border-bottom-left-radius: 0px;
+    }
+
+    #noteContent {
+        border-radius: 0px;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    #leftBox {
+        top: 70px;
+        left: -370px;
+        width: 85%;
+        z-index: 10;
+        position: fixed;
+        box-shadow: 0 20px 20px #000000;
+    }
+
+    #mobileMenu {
+        display: flex;
+    }
+
+    #noteContent {
+        padding: 0px;
+        max-height: 100%;
+    }
+
+    #noteContentHeader {
+        color: #000000;
+        width: calc(100% - 20px);
+        padding: 20px 10px;
+        box-shadow: 0 0 20px #000000;
+        background-color: #dcdcdc;
+    }
+
+    #currentNoteText {
+        max-height: calc(100% - 120px);
+        overflow-y: auto;
+    }
+
+}

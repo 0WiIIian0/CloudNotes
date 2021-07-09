@@ -7,6 +7,10 @@
     let profilePicture = document.getElementById('profilePicture');
     let profilePictureImg = document.getElementById('profilePictureImg');
 
+
+    let leftBox = document.getElementById('leftBox');
+    let mobileMenu = document.getElementById('mobileMenu');
+
     elementManager.setDefaultMethods(noteInfo);
     elementManager.setDefaultMethods(logoffButton);
     elementManager.setDefaultMethods(profilePictureIcon);
@@ -30,6 +34,27 @@
 
     logoffButton.onclick = () => {
         window.location.href = 'logoff.php';
+    }
+
+    mobileMenu.onclick = () => {
+        
+        if (leftBox.style.left != '0px') {
+            leftBox.style.left = '0px';
+
+            window.location.href = '#leftBox';
+
+        } else {
+            leftBox.style.left = '-370px';
+        }
+
+    }
+
+    window.onpopstate = () => {
+        
+        if (window.location.href.indexOf('#leftBox') == -1) {
+            leftBox.style.left = '-370px';
+        }
+
     }
 
 })();
