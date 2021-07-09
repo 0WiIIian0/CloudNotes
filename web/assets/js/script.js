@@ -115,7 +115,7 @@
         complete: (response) => {
             
             console.log(response);
-            response = JSON.parse(response);
+            /*response = JSON.parse(response);
 
 
             response.forEach((note) => {
@@ -127,7 +127,7 @@
                     }
                 }).addTo(noteList);
 
-            });
+            });*/
 
         }
     });
