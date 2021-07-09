@@ -10,16 +10,19 @@ body {
     height: 100%;
     display: flex;
     position: fixed;
+    flex-wrap: wrap;
+    overflow: auto;
     align-items: center;
     flex-direction: row;
     justify-content: center;
     background-color: #222222;
 }
 form {
-    width: fit-content;
     margin: 20px;
     display: flex;
     padding: 30px;
+    min-width: 50%;
+    min-height: 40%;
     align-items: center;
     border-radius: 20px;
     flex-direction: column;

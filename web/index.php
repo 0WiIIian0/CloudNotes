@@ -157,6 +157,21 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
     </div>
+    <div id="addNoteButton">
+        <div class="addNoteButtonLine"></div>
+        <div class="addNoteButtonLine"></div>
+    </div>
+    <div id="addNoteModalBackground">
+        <form id="addNoteModal">
+            <h2>New Note</h2>
+            <input id="newNoteTitle" type="text" placeholder="Title">
+            <textarea id="newNoteText" placeholder="Note Content"></textarea>
+            <div id="formButtonBox">
+                <button>Cancel</button>
+                <button>Send</button>
+            </div>
+        </form>
+    </div>
     <script src="./assets/js/elementManager.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

@@ -11,14 +11,20 @@
     let leftBox = document.getElementById('leftBox');
     let mobileMenu = document.getElementById('mobileMenu');
 
+    let addNoteButton = document.getElementById('addNoteButton');
+
+    let addNoteModal = document.getElementById('addNoteModal');
+
     elementManager.setDefaultMethods(noteInfo);
     elementManager.setDefaultMethods(logoffButton);
     elementManager.setDefaultMethods(profilePictureIcon);
+    elementManager.setDefaultMethods(addNoteButton);
 
 
     noteInfo.setRipple('#999999');
     logoffButton.setRipple('#999999');
     profilePictureIcon.setRipple('#999999');
+    addNoteButton.setRipple('#777777');
 
     profilePictureImg.onchange = (e) => {
 
@@ -55,6 +61,11 @@
             leftBox.style.left = '-370px';
         }
 
+    }
+
+    addNoteModal.onsubmit = (e) => {
+        e.preventDefault();
+        console.log(e);
     }
 
 })();
