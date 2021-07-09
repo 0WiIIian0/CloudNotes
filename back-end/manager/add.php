@@ -25,4 +25,14 @@
 
 	$cmd->execute();
 
+	if($dados = $cmd->fetch(PDO::FETCH_ASSOC))
+	{
+		echo 'A nota foi adicionado';
+	}
+	else
+	{
+		echo 'Nao foi possivel adicionar a nota';
+	}
+
+
 ?>

@@ -29,4 +29,13 @@
 		$cmd->bindValue(":text"    , $text);
 
 		$cmd->execute();
+
+    if($dados = $cmd->fetch(PDO::FETCH_ASSOC))
+	{
+		echo 'A nota foi editado com sucesso';
+	}
+	else
+	{
+		echo 'Nao foi possivel editar a nota';
+	}
 ?>

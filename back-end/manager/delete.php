@@ -13,4 +13,13 @@
 
 	$cmd->bindValue(":id", $_SESSION['id'] );
 
+	if($dados = $cmd->fetch(PDO::FETCH_ASSOC))
+	{
+		echo 'Nota deletado com sucesso';
+	}
+	else
+   {
+   	 	echo 'Nao foi possivel deletar a nota';
+   }
+
 ?>
