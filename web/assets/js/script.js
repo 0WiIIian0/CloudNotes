@@ -15,6 +15,9 @@
 
     let addNoteModal = document.getElementById('addNoteModal');
 
+    let newNoteTitle = document.getElementById('newNoteTitle');
+    let newNoteText = document.getElementById('newNoteText');
+
     elementManager.setDefaultMethods(noteInfo);
     elementManager.setDefaultMethods(logoffButton);
     elementManager.setDefaultMethods(profilePictureIcon);
@@ -66,6 +69,28 @@
     addNoteModal.onsubmit = (e) => {
         e.preventDefault();
         console.log(e);
+
+        let request = new XMLHttpRequest();
+        let data = new FormData();
+
+        data.append('title', newNoteTitle.value);
+        data.append('text', newNoteText.value);
+
+        request.open(
+            'POST',
+            '../back-end/manager/add.php'
+        );
+
+        request.send(data);
+
+        request.onloadend = (loadEnd) => {
+
+            if (loadEnd.currentTarget.status == 200) {
+                console.log(loadEnd);
+            }
+
+        }
+
     }
 
 })();

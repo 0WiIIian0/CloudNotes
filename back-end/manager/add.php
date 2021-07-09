@@ -1,6 +1,6 @@
 <?php    
     session_start();
-    include_once("connectDB.php");
+    include_once("../user/connectDB.php");
 
     $meu_BD = new BD();	
 	
@@ -12,16 +12,17 @@
 					(:user,:title, :text) 
 				";
 
-		$cmd = $pdo->prepare($sql);
+	$cmd = $pdo->prepare($sql);
 
-		$user    = $_SESSION['id'];                    
-		$title   = $_POST['title'];     
-		$text    = $_POST['text'];
+	$user    = $_SESSION['id'];                    
+	$title   = $_POST['title'];     
+	$text    = $_POST['text'];
 
 
-		$cmd->bindValue(":user"    , $user);                    
-		$cmd->bindValue(":title"   , $title);         
-		$cmd->bindValue(":text"    , $text); 
+	$cmd->bindValue(":user"    , $user);                    
+	$cmd->bindValue(":title"   , $title);         
+	$cmd->bindValue(":text"    , $text); 
 
-		$cmd->execute();
+	$cmd->execute();
+
 ?>

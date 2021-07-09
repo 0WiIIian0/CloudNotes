@@ -9,10 +9,8 @@
 
 	$sql = " delete from notes where id = :id ";
 
-		$cmd = $pdo->prepare($sql);
+	$cmd = $pdo->prepare($sql);
 
-		$cmd->bindValue(":id", $_SESSION['id'] );
-
-		$cmd->execute();
+	$cmd->bindValue(":id", $_SESSION['id'] );
 
 ?>
