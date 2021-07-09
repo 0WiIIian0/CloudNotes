@@ -113,7 +113,22 @@
     ajax({
         url: '../back-end/manager/getNotes.php',
         complete: (response) => {
-            console.log(JSON.parse(response));
+            
+            console.log(response);
+            response = JSON.parse(response);
+
+
+            response.forEach((note) => {
+
+                createNoteElement({
+                    title: newNoteTitle.value,
+                    content: {
+                        preview: newNoteText.value
+                    }
+                }).addTo(noteList);
+
+            });
+
         }
     });
 
