@@ -7,7 +7,12 @@
     <title>CloudNote</title>
 </head>
 <body>
-	
+	<?php
+	if( isset($_GET['erro']) )
+	{
+		echo '<p style="color: #f00;">' . $_GET['erro'] . '</p>';
+	}
+?>
 	<form name="cadastro" id="cadastro" method="post" action="../back-end/user/db-signin.php">
 		<h2>Cadastro de Usuario</h2>
 		<p>
@@ -29,6 +34,22 @@
 		</p>
 		<input type="submit" name="cadastrar" id="cadastrar" value=" Cadastrar ">
 	</form>
+
+	<form name="login" id="login" action="../back-end/user/autenticar.php" method="post">
+	<h2>Login de Usuario</h2>
+	Email:<br>
+	<input type="email" name="email" id="email" value="">
+
+	<p></p>
+
+	Password:<br>
+	<input type="password" name="password" id="password" value="">
+
+	<p></p>
+
+	<input type="submit" name="acessar" id="acessar" value=" Acessar ">
+
+</form>
 	<script type="text/javascript" src="_js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 
@@ -62,7 +83,7 @@
 				}
 				return erros == 0;
 
-			}); // submit de fcad
+			}); 
 
 
 		}); // read

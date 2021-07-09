@@ -29,10 +29,10 @@
 	{
         if(password_verify($password,$dados['pass']))
         {
-		$_SESSION['usuario']['id']   = $dados['id'];
-		$_SESSION['usuario']['user'] = $username;
+		$_SESSION['id']   = $dados['id'];
+		$_SESSION['user'] = $dados['user'];
 
-		header("Location: ../../web/index.html");
+		header("Location: ../../web/index.php");
         }
         else
         {

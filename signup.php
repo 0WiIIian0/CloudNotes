@@ -13,7 +13,7 @@
 		echo '<p style="color: #f00;">' . $_GET['erro'] . '</p>';
 	}
 ?>
-	<form name="cadastro" id="cadastro" method="post" action="./back-end/user/db-signin.php">
+	<form name="cadastro" id="cadastro" method="post" action="back-end/user/db-signin.php">
 		<h2>Cadastro de Usuario</h2>
 		<p>
 			Username:<br>
