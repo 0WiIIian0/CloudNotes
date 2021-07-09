@@ -12,7 +12,7 @@ class BD {
 	function __construct() {
 
 		try {	
-			$this->pdo = new PDO("mysql:host=localhost;dbname=cloudnotes","root",""); 
+			$this->pdo = new PDO("mysql:host=localhost;dbname=cloudnotes","root","vertrigo"); 
 		} catch(PDOException $e) {
 			die('Não foi possível realizar a conexão com o Banco de Dados!!!');
 		}
