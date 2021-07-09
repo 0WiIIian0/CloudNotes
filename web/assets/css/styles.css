@@ -149,9 +149,8 @@ input[name="profilePictureImg"] {
     flex: 1;
     display: flex;
     overflow: auto;
-    flex-direction: column;
-    align-items: center;
     margin-right: 5px;
+    flex-direction: column;
     border-bottom-left-radius: 20px;
 }
 
@@ -161,6 +160,7 @@ input[name="profilePictureImg"] {
     cursor: pointer;
     display: flex;
     overflow-x: hidden;
+    min-height: 84px;
     box-shadow: 0 0 10px #bbbbbb;
     border-radius: 10px;
     flex-direction: row;
@@ -412,6 +412,8 @@ input[name="profilePictureImg"] {
     }
 
     #leftBox {
+        min-width: 330px;
+        max-width: 330px;
         border-radius: 0px;
     }
 
@@ -427,9 +429,17 @@ input[name="profilePictureImg"] {
         border-radius: 0px;
     }
 
+    #addNoteButton {
+        left: 300px;
+    }
+
 }
 
 @media only screen and (max-width: 800px) {
+
+    #root {
+        align-items: unset;
+    }
 
     #leftBox {
         top: 70px;
@@ -453,13 +463,20 @@ input[name="profilePictureImg"] {
         color: #000000;
         width: calc(100% - 20px);
         padding: 20px 10px;
+        max-height: 30px;
         box-shadow: 0 0 20px #000000;
         background-color: #dcdcdc;
     }
 
     #currentNoteText {
-        max-height: calc(100% - 120px);
+        max-height: calc(100% - 100px);
         overflow-y: auto;
+    }
+
+    #addNoteButton {
+        left: unset;
+        right: 30px;
+        bottom: 30px;
     }
 
 }

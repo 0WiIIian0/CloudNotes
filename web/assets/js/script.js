@@ -115,19 +115,18 @@
         complete: (response) => {
             
             console.log(response);
-            /*response = JSON.parse(response);
-
+            response = JSON.parse(response);
 
             response.forEach((note) => {
 
                 createNoteElement({
-                    title: newNoteTitle.value,
+                    title: note.title,
                     content: {
-                        preview: newNoteText.value
+                        preview: 'note.text'
                     }
                 }).addTo(noteList);
 
-            });*/
+            });
 
         }
     });

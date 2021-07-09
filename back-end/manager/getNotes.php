@@ -7,12 +7,13 @@
 	
 	$pdo = $meu_BD->pdo;
 
-	$sql = "select * from notes";
+	$sql = "select user, title, text from notes where user = :user";
 
 	$cmd = $pdo->prepare($sql);
+	$cmd->bindValue(":user" , $_SESSION['id']);  
 	
 	$cmd->execute();
 
-	echo json_encode($cmd->fetchAll());
+	echo json_encode($cmd->fetchAll(PDO::FETCH_CLASS));
 
 ?>

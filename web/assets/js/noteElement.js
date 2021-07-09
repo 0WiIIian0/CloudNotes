@@ -7,6 +7,7 @@
             content: [
                 createElement({
                     class: 'noteInfo',
+                    ripple: '#999999',
                     content: [
                         createElement({
                             class: 'noteTitle',
