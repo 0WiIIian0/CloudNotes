@@ -1,3 +1,14 @@
+<?php 
+
+include_once('../back-end/user/cookie.php');
+
+//$_SESSION['user'] = 'James Smith';
+
+if (!isset($_SESSION['user'])) {
+    header('location: signup.php');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +31,9 @@
                     </label>
                     <input type="file" id="profilePictureImg" name="profilePictureImg" accept="image/png, image/jpeg">
                     <div id="userInfo">
-                        <div id="userName">User Name</div>
+                        <div id="userName"><?php echo $_SESSION['user']; ?></div>
                         <div id="userOptions">
-                            <button>Logoff</button>
+                            <button id="logoffButton">Logoff</button>
                             <button>Settings</button>
                         </div>
                     </div>
