@@ -2,7 +2,7 @@
 
 include_once('../back-end/user/cookie.php');
 
-$_SESSION['user'] = 'James Smith';
+//$_SESSION['user'] = 'James Smith';
 
 if (!isset($_SESSION['user'])) {
     header('location: signup.php');
