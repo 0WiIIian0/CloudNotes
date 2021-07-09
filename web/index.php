@@ -167,11 +167,13 @@ if (!isset($_SESSION['user'])) {
             <input id="newNoteTitle" type="text" placeholder="Title">
             <textarea id="newNoteText" placeholder="Note Content"></textarea>
             <div id="formButtonBox">
-                <button>Cancel</button>
-                <button>Send</button>
+                <button id="cancelModalButton">Cancel</button>
+                <button id="sendNoteButton">Send</button>
             </div>
         </form>
     </div>
+    <script src="./assets/js/ajax.js"></script>
+    <script src="./assets/js/noteElement.js"></script>
     <script src="./assets/js/elementManager.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

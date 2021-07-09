@@ -11,12 +11,18 @@
     let leftBox = document.getElementById('leftBox');
     let mobileMenu = document.getElementById('mobileMenu');
 
+    let noteList = document.getElementById('noteList');
+
     let addNoteButton = document.getElementById('addNoteButton');
 
+    let addNoteModalBackground = document.getElementById('addNoteModalBackground');
     let addNoteModal = document.getElementById('addNoteModal');
 
     let newNoteTitle = document.getElementById('newNoteTitle');
     let newNoteText = document.getElementById('newNoteText');
+
+    let cancelModalButton = document.getElementById('cancelModalButton');
+    let sendNoteButton = document.getElementById('sendNoteButton');
 
     elementManager.setDefaultMethods(noteInfo);
     elementManager.setDefaultMethods(logoffButton);
@@ -66,31 +72,49 @@
 
     }
 
+    addNoteButton.onclick = () => {
+        addNoteModalBackground.style.display = 'flex';
+    }
+
+    cancelModalButton.onclick = () =>  {
+        addNoteModalBackground.style.display = 'none';
+    }
+
     addNoteModal.onsubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+    }
 
-        let request = new XMLHttpRequest();
-        let data = new FormData();
+    sendNoteButton.onclick = (e) => {
+        e.preventDefault();
 
-        data.append('title', newNoteTitle.value);
-        data.append('text', newNoteText.value);
+        ajax({
+            url: '../back-end/manager/add.php',
+            data: {
+                title: newNoteTitle.value,
+                text: newNoteText.value
+            },
+            complete: () => {
 
-        request.open(
-            'POST',
-            '../back-end/manager/add.php'
-        );
+                createNoteElement({
+                    title: newNoteTitle.value,
+                    content: {
+                        preview: newNoteText.value
+                    }
+                }).addTo(noteList);
+                
+                newNoteTitle.value = '';
+                newNoteText.value = '';
 
-        request.send(data);
-
-        request.onloadend = (loadEnd) => {
-
-            if (loadEnd.currentTarget.status == 200) {
-                console.log(loadEnd);
             }
-
-        }
+        });
 
     }
+
+    ajax({
+        url: '../back-end/manager/getNotes.php',
+        complete: (response) => {
+            console.log(JSON.parse(response));
+        }
+    });
 
 })();

@@ -19,14 +19,6 @@
 
 	$cmd->execute();
 
-	if($dados = $cmd->fetch(PDO::FETCH_ASSOC))
-	{
-		echo 'A nota foi pego com sucesso';
-	}
-	else
-	{
-		echo 'Nao foi possivel pegar as notas';
-	}
-
+	echo json_encode($cmd->fetchAll());
 
 ?>

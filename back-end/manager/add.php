@@ -18,7 +18,6 @@
 	$title   = $_POST['title'];     
 	$text    = $_POST['text'];
 
-
 	$cmd->bindValue(":user"    , $user);                    
 	$cmd->bindValue(":title"   , $title);         
 	$cmd->bindValue(":text"    , $text); 
