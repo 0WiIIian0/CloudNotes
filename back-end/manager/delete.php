@@ -11,7 +11,7 @@
 
 	$cmd = $pdo->prepare($sql);
 
-	$cmd->bindValue(":id", $_SESSION['id'] );
+	$cmd->bindValue(":id", $_POST['id']);
 
 	if($cmd->execute())
 	{

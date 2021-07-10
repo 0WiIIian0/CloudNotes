@@ -19,12 +19,12 @@
 	$cmd->execute();
 
 
-	if( $dados = $cmd->fetch(PDO::FETCH_ASSOC) )
+	if( $userInfo = $cmd->fetch(PDO::FETCH_ASSOC) )
 	{
-        if(password_verify($password,$dados['pass']))
+        if(password_verify($password,$userInfo['pass']))
         {
-			$_SESSION['id']   = $dados['id'];
-			$_SESSION['user'] = $dados['user'];
+			$_SESSION['id']   = $userInfo['id'];
+			$_SESSION['user'] = $userInfo['user'];
 
 			header("Location: ../../web/index.php");
         }

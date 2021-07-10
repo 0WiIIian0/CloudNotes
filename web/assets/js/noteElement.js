@@ -105,6 +105,83 @@
 
     }
 
+    function deleteNote(props, noteElement) {
+
+        ajax({
+            url: '../back-end/manager/delete.php',
+            data: {
+                id: props.id
+            },
+            complete: (e) => {
+                console.log(e);
+
+                noteElement.parentElement.removeChild(
+                    noteElement
+                );
+
+            }
+        });
+
+    }
+
+    function deleteNoteModal(props, noteElement) {
+
+        let modal = createElement({
+            class: 'modalBackground',
+            content: createElement({
+                class: 'miniModal',
+                content: [
+                    createElement({
+                        tag: 'h2',
+                        content: 'Delete Note'
+                    }),
+                    createElement({
+                        style: {
+                            fontSize: '20px',
+                            padding: '20px'
+                        },
+                        content: `Are you sure that you want to delete "${props.title}"?`
+                    }),
+                    createElement({
+                        class: 'formButtonBox',
+                        content: createElementList({
+                            tag: 'button',
+                            ripple: '#999999',
+                            list: [
+                                {
+                                    content: 'Close',
+                                    event: {
+                                        on: 'click',
+                                        do: () => {
+                                            document.body.removeChild(modal);
+                                        }
+                                    }
+                                },
+                                {
+                                    content: 'Delete',
+                                    event: {
+                                        on: 'click',
+                                        do: () => {
+
+                                            deleteNote(
+                                                props,
+                                                noteElement
+                                            );
+                                            
+                                            document.body.removeChild(modal);
+
+                                        }
+                                    }
+                                }
+                            ]
+                        })
+                    })
+                ]
+            })
+        }).addTo(document.body);
+
+    }
+
     function createNoteElement(props) {
 
         const title = createElement({
@@ -119,7 +196,7 @@
             )
         });
 
-        return createElement({
+        const noteElement = createElement({
             class: 'noteItem',
             content: [
                 createElement({
@@ -152,7 +229,13 @@
                                     }
                                 },
                                 {
-                                    attributes: { src: './assets/icon/trash.svg' }
+                                    attributes: { src: './assets/icon/trash.svg' },
+                                    event: {
+                                        on: 'click',
+                                        do: () => {
+                                            deleteNoteModal(props, noteElement);
+                                        }
+                                    }
                                 }
                             ]
                         })
@@ -160,6 +243,8 @@
                 })
             ]
         });
+
+        return noteElement;
 
     }
 
