@@ -16,6 +16,29 @@
     background-color: #727272;
 }
 
+.modalBackground {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #CCCCCC;
+}
+
 body {
     top: 0;
     left: 0;
@@ -46,6 +69,7 @@ body {
     max-width: 350px;
     min-width: 280px;
     display: flex;
+    z-index: 10;
     overflow-x: hidden;
     min-height: 100%;
     max-height: 100%;
@@ -221,6 +245,7 @@ input[name="profilePictureImg"] {
 
 .noteContentPreview {
     font-size: 14px;
+    word-break: break-all;
 }
 
 
@@ -349,8 +374,8 @@ input[name="profilePictureImg"] {
     margin-bottom: 20px;
 }
 
-#addNoteModal input,
-#addNoteModal textarea {
+.noteTitleInput,
+.noteTextInput {
     width: calc(80% - 20px);
     color: #000000;
     border: none;
@@ -364,19 +389,19 @@ input[name="profilePictureImg"] {
     background-color: #CCCCCC;
 }
 
-#addNoteModal textarea {
+.noteTextInput {
     resize: none;
     height: 150px;
 }
 
-#formButtonBox {
+.formButtonBox {
     display: flex;
     max-width: 100%;
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-#formButtonBox button {
+.formButtonBox button {
     margin: 10px;
     padding: 10px;
     border: none;
@@ -389,7 +414,7 @@ input[name="profilePictureImg"] {
     transition-duration: 0.3s;
 }
 
-#formButtonBox button:hover {
+.formButtonBox button:hover {
     transform: scale(1.05);
 }
 
@@ -447,6 +472,8 @@ input[name="profilePictureImg"] {
         width: 85%;
         z-index: 10;
         position: fixed;
+        height: calc(100% - 70px);
+        min-height: calc(100% - 70px);
         box-shadow: 0 20px 20px #000000;
     }
 

@@ -1,22 +1,18 @@
 <?php    
     session_start();
-    include_once("../user/connectDB.php");
+    include_once("../db/connectDB.php");
 
-    $meu_BD = new BD();	
+    $my_DB = new DB();	
 	
-	$pdo = $meu_BD->pdo;
+	$pdo = $my_DB->pdo;
 
-	$sql = " insert into notes	
-					(user,title,text) 
-				 values 
-					(:user,:title, :text) 
-				";
+	$sql = "insert into notes (user,title,text) values (:user, :title, :text)";
 
 	$cmd = $pdo->prepare($sql);
 
-	$user    = $_SESSION['id'];                    
-	$title   = $_POST['title'];     
-	$text    = $_POST['text'];
+	$user  = $_SESSION['id'];                    
+	$title = $_POST['title'];     
+	$text  = $_POST['text'];
 
 	$cmd->bindValue(":user"    , $user);                    
 	$cmd->bindValue(":title"   , $title);         
@@ -26,11 +22,15 @@
 
 	if($dados = $cmd->fetch(PDO::FETCH_ASSOC))
 	{
-		echo 'A nota foi adicionado';
+		echo json_encode(array(
+			'result' => 201
+		));
 	}
 	else
 	{
-		echo 'Nao foi possivel adicionar a nota';
+		echo json_encode(array(
+			'result' => 500
+		));
 	}
 
 

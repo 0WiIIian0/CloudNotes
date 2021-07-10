@@ -1,6 +1,5 @@
 (() => {
 
-    let noteInfo = document.getElementsByClassName('noteInfo')[0];
     let logoffButton = document.getElementById('logoffButton');
     let profilePictureIcon = document.getElementById('profilePictureIcon');
 
@@ -24,13 +23,11 @@
     let cancelModalButton = document.getElementById('cancelModalButton');
     let sendNoteButton = document.getElementById('sendNoteButton');
 
-    elementManager.setDefaultMethods(noteInfo);
     elementManager.setDefaultMethods(logoffButton);
     elementManager.setDefaultMethods(profilePictureIcon);
     elementManager.setDefaultMethods(addNoteButton);
 
 
-    noteInfo.setRipple('#999999');
     logoffButton.setRipple('#999999');
     profilePictureIcon.setRipple('#999999');
     addNoteButton.setRipple('#777777');
@@ -48,7 +45,7 @@
     }
 
     logoffButton.onclick = () => {
-        window.location.href = 'logoff.php';
+        window.location.href = '../back-end/user/logoff.php';
     }
 
     mobileMenu.onclick = () => {
@@ -97,9 +94,7 @@
 
                 createNoteElement({
                     title: newNoteTitle.value,
-                    content: {
-                        preview: newNoteText.value
-                    }
+                    content: newNoteText.value
                 }).addTo(noteList);
                 
                 newNoteTitle.value = '';
@@ -114,16 +109,14 @@
         url: '../back-end/manager/getNotes.php',
         complete: (response) => {
             
-            console.log(response);
             response = JSON.parse(response);
 
             response.forEach((note) => {
 
                 createNoteElement({
+                    id: note.id,
                     title: note.title,
-                    content: {
-                        preview: 'note.text'
-                    }
+                    content: note.text
                 }).addTo(noteList);
 
             });

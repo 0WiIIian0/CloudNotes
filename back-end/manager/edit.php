@@ -1,10 +1,11 @@
 <?php
-    session_start();
-    include_once("connectDB.php");
 
-    $meu_BD = new BD();	
+    session_start();
+    include_once("../db/connectDB.php");
+
+    $my_DB = new DB();	
 	
-	$pdo = $meu_BD->pdo;
+	$pdo = $my_DB->pdo;
 
 	$sql = " update notes set	
 					user      = :user   , 
@@ -14,23 +15,21 @@
 				 where id = :id
 				";
 
-		$cmd = $pdo->prepare($sql);
-        
-        $cmd->bindValue(":id", $_SESSION['id'] );
+	$cmd = $pdo->prepare($sql);
+	
+	$cmd->bindValue(":id", $_POST['id']);
 
-        $user    = $_SESSION['id'];                    
-		$title   = $_POST['title'];     
-		$text    = $_POST['text'];
+	$user    = $_SESSION['id'];                    
+	$title   = $_POST['title'];     
+	$text    = $_POST['text'];
 
-		//die( $valor_unitario );
+	//die( $valor_unitario );
 
-		$cmd->bindValue(":user"    , $user);                    
-		$cmd->bindValue(":title"   , $title);         
-		$cmd->bindValue(":text"    , $text);
+	$cmd->bindValue(":user"    , $user);                    
+	$cmd->bindValue(":title"   , $title);         
+	$cmd->bindValue(":text"    , $text);
 
-		$cmd->execute();
-
-    if($dados = $cmd->fetch(PDO::FETCH_ASSOC))
+    if($cmd->execute())
 	{
 		echo 'A nota foi editado com sucesso';
 	}

@@ -1,11 +1,9 @@
 <?php 
 
-include_once('../back-end/user/cookie.php');
-
-//$_SESSION['user'] = 'James Smith';
+session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('location: signup.php');
+    header('location: user.php');
 }
 
 ?>
@@ -34,22 +32,12 @@ if (!isset($_SESSION['user'])) {
                         <div id="userName"><?php echo $_SESSION['user']; ?></div>
                         <div id="userOptions">
                             <button id="logoffButton">Logoff</button>
-                            <button>Settings</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="noteList">
-                <div class="noteItem">
-                    <div class="noteInfo">
-                        <div class="noteTitle">Note Title</div>
-                        <div class="noteContentPreview">Note Sample Note Sample Note Sample Note Sample Note Sample...</div>    
-                    </div>
-                    <div class="noteOptions">
-                        <img src="./assets/icon/edit.svg">
-                        <img src="./assets/icon/trash.svg">
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div id="noteContent">
@@ -59,7 +47,7 @@ if (!isset($_SESSION['user'])) {
                     <div class="mobileMenuIconLine"></div>
                     <div class="mobileMenuIconLine"></div>
                 </div>
-                <div id="currentNoteTitle">Note Title</div>
+                <div id="currentNoteTitle"></div>
             </div>
             <div id="currentNoteText"></div>
         </div>
@@ -71,10 +59,10 @@ if (!isset($_SESSION['user'])) {
     <div id="addNoteModalBackground">
         <form id="addNoteModal">
             <h2>New Note</h2>
-            <input id="newNoteTitle" type="text" placeholder="Title">
-            <textarea id="newNoteText" placeholder="Note Content"></textarea>
-            <div id="formButtonBox">
-                <button id="cancelModalButton">Cancel</button>
+            <input id="newNoteTitle" class="noteTitleInput" type="text" placeholder="Title">
+            <textarea id="newNoteText" class="noteTextInput" placeholder="Note Content"></textarea>
+            <div class="formButtonBox">
+                <button id="cancelModalButton">Close</button>
                 <button id="sendNoteButton">Send</button>
             </div>
         </form>

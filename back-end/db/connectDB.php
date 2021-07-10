@@ -1,26 +1,17 @@
 <?php
-/*
-$db = new mysqli(
-    'localhost',
-    'root',
-    'vertrigo',
-    'cloudnotes'
-);*/
-class BD
-{
+
+class DB {
 	public $pdo;
 
-	function __construct()
-	{
-		try 
-		{	
+	function __construct() {
+
+		try {	
 			$this->pdo = new PDO("mysql:host=localhost;dbname=cloudnotes","root",""); 
-		
-		} catch(PDOException $e)
-		{
-			die('Não foi possível realizar a conexão com o Banco de Dados!!!');
-		}		
-	} // construct
+		} catch(PDOException $e) {
+			die('Failed to connect to local database.');
+		}
+
+	}
 
 }
 

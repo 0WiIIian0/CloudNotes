@@ -8,12 +8,12 @@
 </head>
 <body>
 	<?php
-	if( isset($_GET['erro']) )
-	{
-		echo '<p style="color: #f00;">' . $_GET['erro'] . '</p>';
-	}
-?>
-	<form name="cadastro" id="cadastro" method="post" action="back-end/user/db-signin.php">
+		if (isset($_GET['erro']))
+		{
+			echo '<p style="color: #f00;">' . $_GET['erro'] . '</p>';
+		}
+	?>
+	<form name="cadastro" id="cadastro" method="post" action="../back-end/user/db-signin.php">
 		<h2>Cadastro de Usuario</h2>
 		<p>
 			Username:<br>
@@ -35,7 +35,7 @@
 		<input type="submit" name="cadastrar" id="cadastrar" value=" Cadastrar ">
 	</form>
 
-	<form name="login" id="login" action="./back-end/user/autenticar.php" method="post">
+	<form name="login" id="login" action="../back-end/user/signin.php" method="post">
 	<h2>Login de Usuario</h2>
 	Email:<br>
 	<input type="email" name="email" id="email" value="">

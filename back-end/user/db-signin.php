@@ -1,11 +1,10 @@
 <?php
 
-	include_once("connectDB.php");
+	include_once("../db/connectDB.php");
 
-	$meu_BD = new BD();	
+	$my_DB = new DB();	
 
-	$pdo = $meu_BD->pdo;
-
+	$pdo = $my_DB->pdo;
 
 	$sql = " insert into users	
 			(user, email, pass) 
